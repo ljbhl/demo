@@ -20,8 +20,7 @@ public class SignValidateFilter implements Filter{
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         ContentCachingRequestWrapper requestWrapper = new ContentCachingRequestWrapper((HttpServletRequest) request);
         String body = IOUtils.toString(requestWrapper.getBody(),request.getCharacterEncoding());
-        LOGGER.info("request body is {}",body);
-        //TODO 验证签名
+        LOGGER.info("filter request body is {}",body);
         chain.doFilter(requestWrapper, response);
     }
 
